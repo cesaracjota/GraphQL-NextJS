@@ -1,0 +1,42 @@
+{
+  "name": "api",
+  "version": "0.1.0",
+  "description": "Backend de nuestra aplicación con una API en GraphQL",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "prisma generate && yarn clean && tsc --build && yarn copyfiles",
+    "start": "node ../dist/api",
+    "dev": "nodemon index.ts",
+    "test": "jest src",
+    "clean": "rimraf ../dist/api",
+    "copyfiles": "copyfiles src/schema.graphql views/* public/* ../dist/api"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.1.1",
+    "apollo-server-core": "^3.3.0",
+    "apollo-server-express": "^3.3.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "graphql": "^15.6.1",
+    "jose": "^4.3.7",
+    "nodemon": "^2.0.13",
+    "prompt": "^1.2.0",
+    "ts-node": "^10.2.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/jest": "^27.0.x",
+    "@types/prompt": "^1.1.1",
+    "copyfiles": "^2.4.1",
+    "easygraphql-tester": "^6.0.1",
+    "graphql-tag": "^2.12.6",
+    "jest": "^27.0.x",
+    "jest-mock-extended": "^2.0.4",
+    "prisma": "^3.1.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.7"
+  }
+}

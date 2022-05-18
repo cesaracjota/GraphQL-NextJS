@@ -1,0 +1,32 @@
+fragment Avocado on Avocado {
+  id
+  image
+  name
+  createdAt
+  sku
+  price
+  attributes {
+    description
+    taste
+    shape
+    hardiness
+  }
+}
+
+query GetAllAvocados {
+  avos {
+    ...Avocado
+  }
+}
+
+query GetAvocado($avoId: ID!) {
+  avo(id: $avoId) {
+    ...Avocado
+  }
+}
+
+mutation AddAvocado($data: AvoCreateInput!) {
+  createAvo(data: $data) {
+    ...Avocado
+  }
+}
